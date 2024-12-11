@@ -2,6 +2,7 @@
   padding: 20px 0;
   border-radius: 7px;
   background-color: var(--white);
+  box-shadow: 0px 0px 5px 2px var(--grey-dim); 
   .filters__subtitle {
     font-size: 14px;
     font-weight: 500;
@@ -17,25 +18,48 @@
       align-items: center;
       height: 40px;
       width: 100%;
-      border: 1.5px solid var(--grey);
+      border: 1.5px solid var(--grey-light);
+      transition: all 0.15s ease-in-out 0s;
       cursor: pointer;
       &:hover {
         background-color: var(--blue-light);
         border: 1.5px solid var(--blue);
-      }
-      &:first-child {
-        border-radius: 7px 0 0 7px;
-        border-right: 0;
-      }
-      &:last-child {
-        border-radius: 0 7px 7px 0;
-        border-left: 0;
       }
       &.isActive {
         background-color: var(--blue);
         border: 1.5px solid var(--blue);
         p {
           color: var(--white);
+        }
+      }
+      &:first-child {
+        border-radius: 7px 0 0 7px;
+      }
+      &:last-child {
+        border-radius: 0 7px 7px 0;
+      }
+      &:nth-child(2) {
+        border-left: 0;
+        border-right: 0;
+        &:hover + .filters__currency {
+          &:first-child {
+            border-right: 1.5px solid var(--blue);
+          }
+          &:last-child {
+            border-left: 1.5px solid var(--blue);
+          }
+        }
+        &.isActive {
+          border-left: 0;
+          border-right: 0;
+        }
+        &.isActive + .filters__currency {
+          &:first-child {
+            border-right: 1.5px solid var(--blue);
+          }
+          &:last-child {
+            border-left: 1.5px solid var(--blue);
+          }
         }
       }
       p {
@@ -51,6 +75,7 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
+      transition: all 0.1s ease-in-out 0s;
       .stop__label {
         display: flex;
         align-items: center;
@@ -66,7 +91,7 @@
           display: block;
           height: 18px;
           width: 18px;
-          border: 1.5px solid var(--grey);
+          border: 1.5px solid var(--grey-light);
           border-radius: 3px;
           svg {
             display: none;

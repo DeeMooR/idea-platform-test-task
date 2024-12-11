@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CURRENCIES, STOPS } from './config';
+import { CURRENCIES, STOPS, selectSeveralStops } from './config';
 import cn from 'classnames';
 import cls from './styles.module.scss';
 
@@ -8,9 +8,7 @@ export const Filters = () => {
   const [stops, setStops] = useState<string[]>([]);
 
   const handleClickStop = (item: string) => {
-    const updatedStops = stops.includes(item) 
-      ? stops.filter(stop => stop !== item)
-      : [...stops, item];
+    const updatedStops = selectSeveralStops(stops, item);
     setStops(updatedStops);
   }
 
