@@ -1,0 +1,16 @@
+.mainPage {
+  .mainPage__wrapper {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 100px auto 20px;
+    .mainPage__filters {
+      min-width: 277px;
+      flex: 2;
+    }
+    .mainPage__tickets {
+      flex: 5;
+    }
+  }
+}
