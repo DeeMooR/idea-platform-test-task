@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CURRENCIES, STOPS, selectSeveralStops } from './config';
+import { useTickets } from 'src/context';
 import cn from 'classnames';
 import cls from './styles.module.scss';
 
 export const Filters = () => {
-  const [currency, setCurrency] = useState<string>('RUB');
-  const [stops, setStops] = useState<string[]>([]);
+  const { currency, setCurrency, stops, setStops } = useTickets();
 
   const handleClickStop = (item: string) => {
     const updatedStops = selectSeveralStops(stops, item);

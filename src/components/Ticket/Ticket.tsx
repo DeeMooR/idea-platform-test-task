@@ -1,11 +1,12 @@
 import React from 'react'
-import { ITicket } from 'src/interfaces';
-import cls from './styles.module.scss';
 import { planeIcon, turkishAirlinesLogo } from 'src/assets';
 import { formatCost, formatDate, getTextPluralStops } from './config';
+import { CurrencyType, ITicket } from 'src/interfaces';
+import cls from './styles.module.scss';
 
 type Props = {
   ticket: ITicket;
+  currency: CurrencyType;
 }
 
 export const Ticket = ({ticket}: Props) => {

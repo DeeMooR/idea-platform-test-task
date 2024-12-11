@@ -1,3 +1,5 @@
+export type CurrencyType = 'RUB' | 'USD' | 'EUR';
+
 export interface ITicket {
   origin: string,
   origin_name: string,

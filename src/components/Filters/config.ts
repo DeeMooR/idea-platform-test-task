@@ -1,4 +1,6 @@
-export const CURRENCIES = ['RUB', 'USD', 'EUR'];
+import { CurrencyType } from "src/interfaces";
+
+export const CURRENCIES: CurrencyType[] = ['RUB', 'USD', 'EUR'];
 export const STOPS = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
 
 export const selectSeveralStops = (stops: string[], item: string): string[] => {

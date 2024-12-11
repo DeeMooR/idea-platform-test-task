@@ -1,4 +1,4 @@
-﻿export const tickets = [{
+﻿export const allTickets = [{
     "origin": "VVO",
     "origin_name": "Владивосток",
     "destination": "TLV",
