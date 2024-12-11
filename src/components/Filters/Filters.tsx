@@ -5,12 +5,19 @@ import cn from 'classnames';
 import cls from './styles.module.scss';
 
 export const Filters = () => {
-  const { tickets, setShownTickets, currency, setCurrency, stops, setStops } = useTickets();
+  const { tickets, setShownTickets, currency, setCurrency, stops, setStops, setLoading } = useTickets();
 
+  // задержка 500мс для имитации отправки запроса
   useEffect(() => {
-    const filteredTickets = filterTickets(tickets, stops);
-    setShownTickets(filteredTickets);
-  }, [stops])
+    setLoading(true);
+
+    const timeoutId = setTimeout(() => {
+      const filteredTickets = filterTickets(tickets, stops);
+      setShownTickets(filteredTickets);
+      setLoading(false);
+    }, 500); 
+    return () => clearTimeout(timeoutId);
+  }, [tickets, stops])
 
   const handleClickStop = (item: string) => {
     const updatedStops = selectSeveralStops(stops, item);

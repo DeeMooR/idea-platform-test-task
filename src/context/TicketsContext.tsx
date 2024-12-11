@@ -9,9 +9,11 @@ interface TicketsContextType {
   currency: CurrencyType;
   stops: string[];
   rates: IRates | null;
+  loading: boolean;
   setShownTickets: (tickets: ITicket[]) => void;
   setCurrency: (currency: CurrencyType) => void;
   setStops: (stops: string[]) => void;
+  setLoading: (bool: boolean) => void;
 }
 
 type Props = {
@@ -23,9 +25,11 @@ const TicketsContext = createContext<TicketsContextType | undefined>(undefined);
 export const TicketsProvider = ({ children }: Props) => {
   const [tickets, setTickets] = useState<ITicket[]>([]);
   const [shownTickets, setShownTickets] = useState<ITicket[]>([]);
+
   const [currency, setCurrency] = useState<CurrencyType>('RUB');
-  const [stops, setStops] = useState<string[]>([]);
+  const [stops, setStops] = useState<string[]>(['Все']);
   const [rates, setRates] = useState<IRates | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getRates = async () => {
@@ -40,7 +44,7 @@ export const TicketsProvider = ({ children }: Props) => {
   }, [])
 
   return (
-    <TicketsContext.Provider value={{ tickets, shownTickets, currency, stops, rates, setShownTickets, setCurrency, setStops }}>
+    <TicketsContext.Provider value={{ tickets, shownTickets, currency, stops, rates, loading, setShownTickets, setCurrency, setStops, setLoading }}>
       {children}
     </TicketsContext.Provider>
   );

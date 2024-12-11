@@ -1,10 +1,10 @@
 import React from 'react'
-import { Filters, Ticket } from 'src/components';
+import { Filters, Loading, Ticket } from 'src/components';
 import { useTickets } from 'src/context';
 import cls from './styles.module.scss';
 
 export const MainPage = () => {
-  const { shownTickets, currency, rates } = useTickets();
+  const { shownTickets, currency, rates, loading } = useTickets();
 
   return (
     <div className={cls.mainPage}>
@@ -13,9 +13,13 @@ export const MainPage = () => {
           <Filters />
         </div>
         <div className={cls.mainPage__tickets}>
-          {shownTickets.map((ticket, index) => (
-            <Ticket ticket={ticket} currency={currency} rates={rates} key={index} />
-          ))}
+          {loading ? (
+            <Loading />
+          ) : (
+            shownTickets.map((ticket, index) => (
+              <Ticket ticket={ticket} currency={currency} rates={rates} key={index} />
+            ))
+          )}
         </div>
       </div>
     </div>

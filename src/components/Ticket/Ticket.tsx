@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { planeIcon, turkishAirlinesLogo } from 'src/assets';
-import { formatCost, formatDate, getPrice, getTextPluralStops } from './config';
+import { formatDate, getPrice, getTextPluralStops } from './config';
 import { CurrencyType, IRates, ITicket } from 'src/interfaces';
+import { Notification } from 'src/components';
 import cls from './styles.module.scss';
 
 type Props = {
@@ -25,6 +26,7 @@ export const Ticket = ({ticket, currency, rates}: Props) => {
     stops 
   } = ticket;
 
+  const [addedToBasket, setAddedToBasket] = useState(false);
   const actualPrice = getPrice(rates, currency, price);
 
   return (
@@ -33,7 +35,7 @@ export const Ticket = ({ticket, currency, rates}: Props) => {
         <div className={cls.ticket__airline}>
           <img src={turkishAirlinesLogo} alt="Turkish Airlines" />
         </div>
-        <button className={cls.ticket__buyBtn}>
+        <button className={cls.ticket__buyBtn} onClick={() => setAddedToBasket(true)}>
           Купить <br/> за {actualPrice}
         </button>
       </div>
@@ -60,6 +62,13 @@ export const Ticket = ({ticket, currency, rates}: Props) => {
           </div>
         </div>
       </div>
+      {addedToBasket &&
+        <Notification 
+          type='success' 
+          message='Билет добавлен в корзину' 
+          close={() => setAddedToBasket(false)} 
+        />
+      }
     </section>
   )
 }
