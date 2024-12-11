@@ -16,9 +16,13 @@ export const MainPage = () => {
           {loading ? (
             <Loading />
           ) : (
-            shownTickets.map((ticket, index) => (
-              <Ticket ticket={ticket} currency={currency} rates={rates} key={index} />
-            ))
+            !!shownTickets.length ? (
+              shownTickets.map((ticket, index) => (
+                <Ticket ticket={ticket} currency={currency} rates={rates} key={index} />
+              ))
+            ) : (
+              <p className={cls.mainPage__empty}>Билетов по выбранным критериям нет</p>
+            )
           )}
         </div>
       </div>

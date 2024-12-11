@@ -19,7 +19,7 @@ export const Filters = () => {
     return () => clearTimeout(timeoutId);
   }, [tickets, stops])
 
-  const handleClickStop = (item: string) => {
+  const handleClickLine = (item: string) => {
     const updatedStops = selectSeveralStops(stops, item);
     setStops(updatedStops);
   }
@@ -49,7 +49,7 @@ export const Filters = () => {
         {STOPS.map(item => (
           <div className={cls.filters__stop} key={item}>
             <label className={cls.stop__label}>
-              <input type='checkbox' name='stop' checked={stops.includes(item)} onClick={() => handleClickStop(item)} />
+              <input type='checkbox' name='stop' checked={stops.includes(item)} onClick={() => handleClickLine(item)} />
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" width="18" height="18">
                   <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" fill='#2196f3' transform="translate(6, 5)"/>

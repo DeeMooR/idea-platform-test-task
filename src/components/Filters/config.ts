@@ -9,7 +9,9 @@ export const selectSeveralStops = (stops: string[], item: string): string[] => {
   updatedStops = updatedStops.includes(item) 
     ? updatedStops.filter(stop => stop !== item)
     : [...updatedStops, item];
-    
+  
+  // если ничего не выбрано, то все
+  if (!updatedStops.length) updatedStops = ['Все'];
   return updatedStops;
 }
  

@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useContext, useEffect } from 'react';
 import { CurrencyType, IRates, ITicket } from 'src/interfaces';
-import { getExchangeRates, sortTicketsByDateTime } from 'src/utils/config';
+import { getExchangeRates } from 'src/utils/config';
 import { allTickets } from 'src/utils/tickets';
 
 interface TicketsContextType {
@@ -38,7 +38,7 @@ export const TicketsProvider = ({ children }: Props) => {
     }
     getRates();
 
-    const sortedTickets = sortTicketsByDateTime(allTickets);
+    const sortedTickets = allTickets.sort((a, b) => a.price - b.price);
     setTickets(sortedTickets);
     setShownTickets(sortedTickets);
   }, [])
