@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/idea-platform-test-task/static/css/main.010427ad.css",
+    "main.js": "/idea-platform-test-task/static/js/main.22c8772b.js",
+    "static/media/aeroflot.png": "/idea-platform-test-task/static/media/aeroflot.d16ed90390489d1d5a96.png",
+    "static/media/british_airways.png": "/idea-platform-test-task/static/media/british_airways.03af9b3dd68c9fdfb835.png",
+    "static/media/S7.png": "/idea-platform-test-task/static/media/S7.6d25ecd05c309b1c8306.png",
+    "static/media/turkish-airlines.png": "/idea-platform-test-task/static/media/turkish-airlines.20fad05cb23573df4fa1.png",
+    "index.html": "/idea-platform-test-task/index.html",
+    "static/media/plane.svg": "/idea-platform-test-task/static/media/plane.b043846e40b241ddd7a674f67673917c.svg",
+    "static/media/cross.svg": "/idea-platform-test-task/static/media/cross.f348d21a6cc501576c09cf9e864683be.svg",
+    "main.010427ad.css.map": "/idea-platform-test-task/static/css/main.010427ad.css.map",
+    "main.22c8772b.js.map": "/idea-platform-test-task/static/js/main.22c8772b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.010427ad.css",
+    "static/js/main.22c8772b.js"
+  ]
+}
