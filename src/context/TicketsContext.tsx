@@ -1,14 +1,15 @@
 import React, { createContext, useState, ReactNode, useContext, useEffect } from 'react';
 import { CurrencyType, IRates, ITicket } from 'src/interfaces';
-import { getExchangeRates } from 'src/utils/config';
-import { allTickets } from 'src/tickets';
+import { getExchangeRates, sortTicketsByDateTime } from 'src/utils/config';
+import { allTickets } from 'src/utils/tickets';
 
 interface TicketsContextType {
   tickets: ITicket[];
+  shownTickets: ITicket[];
   currency: CurrencyType;
   stops: string[];
   rates: IRates | null;
-  setTickets: (tickets: ITicket[]) => void;
+  setShownTickets: (tickets: ITicket[]) => void;
   setCurrency: (currency: CurrencyType) => void;
   setStops: (stops: string[]) => void;
 }
@@ -20,7 +21,8 @@ type Props = {
 const TicketsContext = createContext<TicketsContextType | undefined>(undefined);
 
 export const TicketsProvider = ({ children }: Props) => {
-  const [tickets, setTickets] = useState<ITicket[]>(allTickets);
+  const [tickets, setTickets] = useState<ITicket[]>([]);
+  const [shownTickets, setShownTickets] = useState<ITicket[]>([]);
   const [currency, setCurrency] = useState<CurrencyType>('RUB');
   const [stops, setStops] = useState<string[]>([]);
   const [rates, setRates] = useState<IRates | null>(null);
@@ -31,10 +33,14 @@ export const TicketsProvider = ({ children }: Props) => {
       setRates(rates);
     }
     getRates();
+
+    const sortedTickets = sortTicketsByDateTime(allTickets);
+    setTickets(sortedTickets);
+    setShownTickets(sortedTickets);
   }, [])
 
   return (
-    <TicketsContext.Provider value={{ tickets, currency, stops, rates, setTickets, setCurrency, setStops }}>
+    <TicketsContext.Provider value={{ tickets, shownTickets, currency, stops, rates, setShownTickets, setCurrency, setStops }}>
       {children}
     </TicketsContext.Provider>
   );

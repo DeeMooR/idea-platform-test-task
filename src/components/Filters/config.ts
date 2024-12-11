@@ -1,4 +1,4 @@
-import { CurrencyType } from "src/interfaces";
+import { CurrencyType, ITicket } from "src/interfaces";
 
 export const CURRENCIES: CurrencyType[] = ['RUB', 'USD', 'EUR'];
 export const STOPS = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
@@ -11,4 +11,17 @@ export const selectSeveralStops = (stops: string[], item: string): string[] => {
     : [...updatedStops, item];
     
   return updatedStops;
+}
+ 
+const getAmountOfStops = (stops: string[]): number[] => {
+  return stops.map(stop => {
+    return (stop === 'Без пересадок') ? 0 : +stop.split(" ")[0];
+  })
+}
+
+export const filterTickets = (tickets: ITicket[], stops: string[]) => {
+  if (stops.includes('Все')) return tickets;
+  const selectedStops = getAmountOfStops(stops);
+  console.log(selectedStops)
+  return tickets.filter(ticket => selectedStops.includes(ticket.stops));
 }

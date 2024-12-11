@@ -4,7 +4,7 @@ import { useTickets } from 'src/context';
 import cls from './styles.module.scss';
 
 export const MainPage = () => {
-  const { tickets, currency, rates } = useTickets();
+  const { shownTickets, currency, rates } = useTickets();
 
   return (
     <div className={cls.mainPage}>
@@ -13,7 +13,7 @@ export const MainPage = () => {
           <Filters />
         </div>
         <div className={cls.mainPage__tickets}>
-          {tickets.map((ticket, index) => (
+          {shownTickets.map((ticket, index) => (
             <Ticket ticket={ticket} currency={currency} rates={rates} key={index} />
           ))}
         </div>

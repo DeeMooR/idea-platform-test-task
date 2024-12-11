@@ -1,11 +1,16 @@
-import React from 'react'
-import { CURRENCIES, STOPS, selectSeveralStops } from './config';
+import React, { useEffect } from 'react'
+import { CURRENCIES, STOPS, selectSeveralStops, filterTickets } from './config';
 import { useTickets } from 'src/context';
 import cn from 'classnames';
 import cls from './styles.module.scss';
 
 export const Filters = () => {
-  const { currency, setCurrency, stops, setStops } = useTickets();
+  const { tickets, setShownTickets, currency, setCurrency, stops, setStops } = useTickets();
+
+  useEffect(() => {
+    const filteredTickets = filterTickets(tickets, stops);
+    setShownTickets(filteredTickets);
+  }, [stops])
 
   const handleClickStop = (item: string) => {
     const updatedStops = selectSeveralStops(stops, item);
