@@ -1,5 +1,5 @@
 import CurrencyAPI from '@everapi/currencyapi-js';
-import { IRates, ITicket } from 'src/interfaces';
+import { IRates } from 'src/interfaces';
 
 const currencyApi = new CurrencyAPI('cur_live_orrGoD8JkLXrd2wVGyboeezdCQelZIdSpWLoYrEh');
 
