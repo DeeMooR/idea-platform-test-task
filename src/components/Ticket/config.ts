@@ -1,3 +1,4 @@
+import { S7Logo, aeroflotLogo, britishAirwaysLogo, turkishAirlinesLogo } from "src/assets";
 import { CurrencyType, IRates } from "src/interfaces";
 
 enum CurrencySymbol {
@@ -5,6 +6,17 @@ enum CurrencySymbol {
   USD = '$',
   EUR = '€',
 }
+
+export const AirlineLogo = {
+  TK: turkishAirlinesLogo,
+  S7: S7Logo,
+  SU: aeroflotLogo,
+  BA: britishAirwaysLogo,
+} as const;
+
+export const getAirlineLogo = (code: string) => {
+  return (code in AirlineLogo) ? AirlineLogo[code as keyof typeof AirlineLogo] : '';
+};
 
 export const formatCost = (cost: number): string => {
   const formattedCost = cost.toString().slice(0, -3) + ' ' + cost.toString().slice(-3);

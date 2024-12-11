@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { planeIcon, turkishAirlinesLogo } from 'src/assets';
-import { formatDate, getPrice, getTextPluralStops } from './config';
+import { AirlineLogo, formatDate, getAirlineLogo, getPrice, getTextPluralStops } from './config';
 import { CurrencyType, IRates, ITicket } from 'src/interfaces';
 import { Notification } from 'src/components';
 import cls from './styles.module.scss';
@@ -33,7 +33,7 @@ export const Ticket = ({ticket, currency, rates}: Props) => {
     <section className={cls.ticket}>
       <div className={cls.ticket__left}>
         <div className={cls.ticket__airline}>
-          <img src={turkishAirlinesLogo} alt="Turkish Airlines" />
+          <img src={getAirlineLogo(carrier)} alt={carrier} />
         </div>
         <button className={cls.ticket__buyBtn} onClick={() => setAddedToBasket(true)}>
           Купить <br/> за {actualPrice}
