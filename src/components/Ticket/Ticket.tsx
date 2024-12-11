@@ -1,15 +1,16 @@
 import React from 'react'
 import { planeIcon, turkishAirlinesLogo } from 'src/assets';
-import { formatCost, formatDate, getTextPluralStops } from './config';
-import { CurrencyType, ITicket } from 'src/interfaces';
+import { formatCost, formatDate, getPrice, getTextPluralStops } from './config';
+import { CurrencyType, IRates, ITicket } from 'src/interfaces';
 import cls from './styles.module.scss';
 
 type Props = {
   ticket: ITicket;
   currency: CurrencyType;
+  rates: IRates | null;
 }
 
-export const Ticket = ({ticket}: Props) => {
+export const Ticket = ({ticket, currency, rates}: Props) => {
   const {
     origin, 
     origin_name, 
@@ -24,6 +25,8 @@ export const Ticket = ({ticket}: Props) => {
     stops 
   } = ticket;
 
+  const actualPrice = getPrice(rates, currency, price);
+
   return (
     <section className={cls.ticket}>
       <div className={cls.ticket__left}>
@@ -31,7 +34,7 @@ export const Ticket = ({ticket}: Props) => {
           <img src={turkishAirlinesLogo} alt="Turkish Airlines" />
         </div>
         <button className={cls.ticket__buyBtn}>
-          Купить <br/> за {formatCost(price)}₽
+          Купить <br/> за {actualPrice}
         </button>
       </div>
       <div className={cls.ticket__right}>

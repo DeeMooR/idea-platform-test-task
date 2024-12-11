@@ -13,3 +13,8 @@ export interface ITicket {
   stops: number,
   price: number
 }
+
+export interface IRates {
+  USD: number,
+  EUR: number
+}
