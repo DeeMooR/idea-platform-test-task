@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/*--------- CONST ----------*/
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont;
+
+  --background: #f3f7fa;
+  --white: #ffffff;
+  --black: #4a4a4a;
+  --grey: #a3a5a6;
+  --grey-light: #d2d5d6;
+  --grey-dim: #eceff1;
+
+  --orange: #ff6d00;
+  --orange-light: #ff8124;
+  --blue: #2196f3;
+  --blue-light: #f2fcff;
+
+  --success: #4DB84D;
+  --error: #DF5A5A;
+}
+
+/*--------- NULLING STYLE ----------*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;}
+*,*:before, after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	width: 100%;
+	font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--black);
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;}
+div, p, a, span {font-family: var(--font-main);}
+input,button,textarea{font-family: var(--font-main);}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-mox-focus-inner {padding:0; border:0;}
+a, a:visited{text-decoration: none; cursor: pointer; display: block;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{display: block; vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-weight: 500}
+
+body {
+  overflow-y: scroll;
+}

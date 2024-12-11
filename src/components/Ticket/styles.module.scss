@@ -1,0 +1,184 @@
+.ticket {
+  display: flex;
+  border-radius: 7px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 5px 2px var(--grey-dim); 
+  .ticket__left {
+    padding: 25px 20px;
+    width: 35%;
+    border-right: 1.5px solid var(--grey-dim);
+    .ticket__airline {
+      margin: 0 20px 20px;
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 42px;
+      }
+    }
+    .ticket__buyBtn {
+      width: 100%;
+      padding: 5px 0;
+      font-size: 16px;
+      line-height: 1.4em;
+      color: var(--white);
+      background-color: var(--orange);
+      border-radius: 7px;
+      box-shadow: 0px 1px 5px 1px var(--grey-dim); 
+      transition: all 0.15s ease-in-out 0s;
+      &:hover {
+        background-color: var(--orange-light);
+      }
+    }
+  }
+  .ticket__right {
+    padding: 25px 25px;
+    max-width: 65%;
+    width: 100%;
+    .ticket__timeBlock {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 0 0 10px 0;
+      .ticket__time {
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
+      .ticket__flight {
+        width: 100%;
+        .ticket__stops {
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          color: var(--grey);
+          margin: 0 0 1px 0;
+          text-align: center;
+          text-transform: uppercase;
+        }
+        .ticket__planeLine {
+          display: flex;
+          align-items: center;
+          hr {
+            height: 1px;
+            width: 100%;
+            background-color: var(--grey);
+          }
+        }
+      }
+    }
+    .ticket__airports {
+      display: flex;
+      justify-content: space-between;
+      .ticket__airport {
+        .ticket__city {
+          font-size: 13px;
+          font-weight: 600;
+          margin: 0 0 3px 0;
+        }
+        .ticket__date {
+          font-size: 13px;
+          color: var(--grey);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 899.98px) {
+  .ticket {
+    .ticket__left {
+      min-width: 160px;
+      .ticket__airline {
+        margin: 0 0 20px 0;
+      }
+    }
+    .ticket__right {
+      max-width: 100%;
+      .ticket__timeBlock {
+        gap: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 549.98px) {
+  .ticket {
+    .ticket__left {
+      padding: 25px 15px;
+    }
+    .ticket__right {
+      padding: 25px 15px;
+      .ticket__timeBlock {
+        gap: 10px;
+        margin: 0 0 15px 0;
+        .ticket__time {
+          font-size: 26px;
+        }
+        .ticket__flight {
+          .ticket__stops {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .ticket {
+    flex-direction: column-reverse;
+    .ticket__left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 20px 20px;
+      border-right: 0;
+      width: 100%;
+      .ticket__airline {
+        margin: 0;
+      }
+      .ticket__buyBtn {
+        max-width: 150px;
+      }
+    }
+    .ticket__right {
+      padding: 20px;
+      .ticket__timeBlock {
+        gap: 15px;
+        margin: 0 0 10px 0;
+        .ticket__time {
+          font-size: 32px;
+        }
+        .ticket__flight {
+          .ticket__stops {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 399.98px) {
+  .ticket {
+    .ticket__left {
+      .ticket__airline {
+        max-width: 130px;
+      }
+      .ticket__buyBtn {
+        max-width: 130px;
+      }
+    }
+    .ticket__right {
+      .ticket__timeBlock {
+        gap: 10px;
+        .ticket__time {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
